@@ -4,11 +4,23 @@
 
 namespace App;
 
+use App\DB\Sql;
+
 class Perfil
 {
-
+    private $idperfil;
     private $nome_usu;
-    private $data_nasc;
+    private $data_nasc;    
+
+    public function getIdperfil()
+    {
+        return $this->idperfil;
+    }
+
+    public function setIdperfil($value)
+    {
+        $this->idperfil = $value;
+    }
 
     public function getNomeusu()
     {
@@ -44,20 +56,22 @@ class Perfil
         return $result;
     }
 
+
+
     public function deleteById($id)
     {
-        $this->sql->query("DELETE FROM tb_perfil WHERE idperfil = :ID", [":ID"=>$id]);        
+        $this->sql->select("DELETE FROM tb_perfil WHERE idperfil = :ID", [":ID"=>$id]);        
     }
 
 
 
-    public function listById()
+    public static function listById()
     {           
-                return $this->sql->select("SELECT * FROM tb_perfil ORDER BY idperfil");
+        $sql = new Sql();
+        return $sql->select("SELECT * FROM tb_perfil ORDER BY idperfil");
     }
 
-
-    
+   
 
     public function insert()
     {        
@@ -66,8 +80,7 @@ class Perfil
             ':data_nasc'=>$this->getDatanasc()
         ));        
             $this->setData($result[0]);   
-    }
-
+    }   
 
 
 
@@ -75,7 +88,7 @@ class Perfil
     public function setData($data)
     {        
         $this->setNomeusu($data['nome_usu']);
-        $this->setDatanasc($data['data_nasc']);       
+        $this->setDatanasc($data['data_nasc']);                     
     }
 
 

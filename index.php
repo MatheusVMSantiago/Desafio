@@ -1,44 +1,55 @@
-<form action="/insert" method="post">
-    <input type="text" name="nome_usu" id="nome_usu">   
-    <input type="text" name="data_nasc" id="data_nasc"> 
-    <input type="submit" value="Cadastrar"/>
-</form>
-
 <?php
 
 require_once("vendor/autoload.php");
 
 use App\DB\Sql;
 use App\Perfil;
-
+use App\Page;
 
 $app = new \Slim\Slim();
 $sql = new Sql();
 
 
-$app->get('/', function()
-{
-   echo "escreva qualquer merda ai";
+// Tela Inicial = Mostrar todos os usuarios cadastrados
+$app->get('/',function()
+{   
+   // $sql = new Sql();
+   // $list = new Perfil($sql);
+   // $listusu = $list->listById();
+   // echo json_encode($listusu);
+   $page = new Page();  
+    $idperfil = Perfil::listById();
+
+   $page->setTpl("index", array(
+       "idperfil"=>$idperfil
+   ));
+
+
 });
 
-//insere no DB - funcional
-$app->post('/insert', function()
+
+//ROTA insere no DB - funcional
+$app->post('/cadastro', function()
 {
     $sql = new Sql();
-    $perfilCon = new Perfil($sql);   
-    $perfilCon->setData($_POST);
+    $perfilCon = new Perfil($sql);
+    $perfilCon->setData($_POST);               
     $perfilCon->insert();
-    echo "Cadastrado com Sucesso";
+    echo "Cadastrado com Sucesso";  
+});
+
+
+//ROTA Delete Funcional
+$app->get('/delete/:idperfil', function($idperfil)
+{
+    $sql = new Sql();
+    $perfilEx = new Perfil($sql);
+    $perfilEx->deleteById($idperfil);
+    echo "excluido modafoca";
 });
 
 
 
-//Vizualizas Lista de perfis
-/*
-$list = new Perfil($sql);
-$listusu = $list->listById();
-echo json_encode($listusu);
-*/
 
 
 //Visualizar perfis por ID passado
@@ -49,26 +60,6 @@ echo json_encode($usu);
 */
 
 
-
-//Incluir perfil
-/*
-$perfilCon = new Perfil($sql);
-$perfilCon->setNomeusu("Ronaldinho Diabo");
-$perfilCon->setDatanasc("6666-06-66");
-$perfilCon->insert();
-*/
-
-//Alterar perfil
-
-
-
-
-//Excluir perfil
-/*
-$perfilEx = new Perfil($sql);
-$perfilEx->deleteById(4);
-echo "excluido modafoca";
-*/
 
 
 $app->run();
