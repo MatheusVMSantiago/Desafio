@@ -5,22 +5,48 @@ require_once("vendor/autoload.php");
 use App\DB\Sql;
 use App\Perfil;
 
+
 $app = new \Slim\Slim();
+$sql = new Sql();
 
 
-$app->get('/', function() {
-    
-    $sql = new Sql();
-    
-    $usuarioRepo = new Perfil($sql);
 
-    $usuario = $usuarioRepo->loadByid(1);
+//Vizualizas Lista de perfis
+/*
+$list = new Perfil($sql);
+$listusu = $list->listById();
+echo json_encode($listusu);
+*/
 
-    echo json_encode($usuario);
 
-});
+//Visualizar perfis por ID passado
+/*
+$usuRepo = new Perfil($sql);
+$usu = $usuRepo->loadByid(3);
+echo json_encode($usu);
+*/
 
-$app->run();
+
+
+//Incluir perfil
+/*
+$perfilCon = new Perfil($sql);
+$perfilCon->setNomeusu("Ronaldinho Diabo");
+$perfilCon->setDatanasc("6666-06-66");
+$perfilCon->insert();
+*/
+
+//Alterar perfil
+
+
+
+
+//Excluir perfil
+/*
+$perfilEx = new Perfil($sql);
+$perfilEx->deleteById(4);
+echo "excluido modafoca";
+*/
 
 
 

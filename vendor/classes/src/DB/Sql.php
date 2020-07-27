@@ -1,5 +1,7 @@
 <?php
 
+//CONEXAO DB
+
 namespace App\DB;
 
 class Sql
