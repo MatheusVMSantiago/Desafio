@@ -61,9 +61,9 @@ class Perfil
 
     public function insert()
     {        
-        $result = $this->sql->select("CALL sp_usuarios_insert(:NOME, :DTNASC)", array(
-            ':NOME'=>$this->getNomeusu(),
-            ':DTNASC'=>$this->getDatanasc()
+        $result = $this->sql->select("CALL sp_usuarios_insert(:nome_usu, :data_nasc)", array(
+            ':nome_usu'=>$this->getNomeusu(),
+            ':data_nasc'=>$this->getDatanasc()
         ));        
             $this->setData($result[0]);   
     }
