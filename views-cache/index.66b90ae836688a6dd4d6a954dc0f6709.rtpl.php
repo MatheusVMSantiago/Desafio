@@ -1,5 +1,12 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?>
-<br><br><br> 
+<br><br><br>
+<div align="center">    
+  
+  <div>
+    <h1>Lista de Perfis</h1>
+  </div>
+
+</div> 
 
 <div class="box-body no-padding" align="center">
     <table class="table table-striped" border="1">
@@ -20,8 +27,9 @@
       <td><?php echo htmlspecialchars( $value1["nome_usu"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
       <td><?php echo htmlspecialchars( $value1["data_nasc"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>     
       <td>
-        <a href="/index/editar/{$value.idperfil" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
-        <a href="/index/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+        <a href="/editar/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+        <a href="/index/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este perfil?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+        <a href="/json/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Json</a>
       </td>
     </tr>
     <?php } ?>   
@@ -31,9 +39,11 @@
 
 <div align="center">        
       <br><br>
-      <!-- /.box-body -->
+      
       <div class="box-footer">
         <a href="/cadastro"><button>Cadastrar Novo Perfil</button></a>
+      
+        <a href="/json"><button>Visualizar Json</button></a>
       </div>
    
   </div>

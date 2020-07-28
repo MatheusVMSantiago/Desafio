@@ -48,25 +48,30 @@ class Perfil
         $this->sql = $sql;
     } 
 
+    
     public function setData($data)
-    {                
+    {                        
         $this->setNomeusu($data['nome_usu']);
         $this->setDatanasc($data['data_nasc']);                           
     }
+    
 
     public function deleteById($id)
     {
         $this->sql->select("DELETE FROM tb_perfil WHERE idperfil = :ID", [":ID"=>$id]);        
     }
 
-
-
-    public static function listById()
+    public static function listAllId()
     {           
         $sql = new Sql();
         return $sql->select("SELECT * FROM tb_perfil ORDER BY idperfil");
+    } 
+    
+    public function listById($id)
+    {
+        $results = $this->sql->select("SELECT * FROM tb_perfil WHERE idperfil = :ID", [":ID"=>$id]);
+        return $results;
     }
-
    
 
     public function insert()
@@ -75,11 +80,18 @@ class Perfil
             ':nome_usu'=>$this->getNomeusu(),
             ':data_nasc'=>$this->getDatanasc()
         ));                     
-    }   
+    }
 
 
-
-   
+    public function update()
+    {        
+        $this->sql->select("UPDATE tb_perfil SET nome_usu = :nome_usu, data_nasc = :data_nasc WHERE idperfil = :idperfil", array(            
+            ':nome_usu'=>$this->getNomeusu(),
+            ':data_nasc'=>$this->getDatanasc(),
+            ':idperfil'=>$this->getIdperfil()
+        ));
+    }
+ 
    
 
 
