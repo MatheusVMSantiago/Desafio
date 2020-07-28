@@ -48,15 +48,11 @@ class Perfil
         $this->sql = $sql;
     } 
 
-
-
-    public function loadByid($id)
-    {        
-        $result = $this->sql->select("SELECT * FROM tb_perfil WHERE idperfil = :ID", [":ID"=>$id] );
-        return $result;
+    public function setData($data)
+    {                
+        $this->setNomeusu($data['nome_usu']);
+        $this->setDatanasc($data['data_nasc']);                           
     }
-
-
 
     public function deleteById($id)
     {
@@ -75,21 +71,16 @@ class Perfil
 
     public function insert()
     {        
-        $result = $this->sql->select("CALL sp_usuarios_insert(:nome_usu, :data_nasc)", array(
+        $this->sql->select("INSERT INTO tb_perfil (nome_usu, data_nasc) VALUES (:nome_usu,:data_nasc) ", array(
             ':nome_usu'=>$this->getNomeusu(),
             ':data_nasc'=>$this->getDatanasc()
-        ));        
-            $this->setData($result[0]);   
+        ));                     
     }   
 
 
 
-    //Para poupar escrita de código
-    public function setData($data)
-    {        
-        $this->setNomeusu($data['nome_usu']);
-        $this->setDatanasc($data['data_nasc']);                     
-    }
+   
+   
 
 
 }

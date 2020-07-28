@@ -1,49 +1,42 @@
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
-    </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-  </div>
-</div>
-<br><br><br>
+
+<br><br><br> 
+
 <div class="box-body no-padding" align="center">
-    <table class="table table-striped">
-      <thead>
+    <table class="table table-striped" border="1">
+     
         <tr>
-          <th style="width: 10px">ID</th>
-          <th>Nome</th>
-          <th>Data de Nascimento</th>
-          <th>Opções</th>          
-          <th style="width: 140px">&nbsp;</th>
+          <th style="width: 200px">ID</th>
+          <th style="width: 200px">Nome</th>
+          <th style="width: 200px">Data de Nascimento</th>
+          <th style="width: 200px">Opções</th>      
+          
         </tr>
-      </thead>
-      <tbody>
+        
+     
+    
     {loop="$idperfil"} 
     <tr align="center">
       <td>{$value.idperfil}</td>
       <td>{$value.nome_usu}</td>
       <td>{$value.data_nasc}</td>     
       <td>
-        <a href="/admin/users/{$value.idperfil" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
-        <a href="/admin/users/{$value.idperfil}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+        <a href="/index/editar/{$value.idperfil" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+        <a href="/index/{$value.idperfil}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
       </td>
     </tr>
-    {/loop}</tbody>
+    {/loop}   
 </table>
+
 </div>
-</div>
+
+<div align="center">        
+      <br><br>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <a href="/cadastro"><button>Cadastrar Novo Perfil</button></a>
+      </div>
+   
+  </div>
 <br>
 
 

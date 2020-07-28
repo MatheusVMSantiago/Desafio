@@ -39,6 +39,7 @@ class Page
         $this->setData($data);
         return $this->tpl->draw($name, $returnHTML);         
     }
+    
 
     private function setData($data= array())
     {
