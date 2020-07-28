@@ -42,8 +42,6 @@
       
       <div class="box-footer">
         <a href="/cadastro"><button>Cadastrar Novo Perfil</button></a>
-      
-        <a href="/json"><button>Visualizar Json</button></a>
       </div>
    
   </div>
