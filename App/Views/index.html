@@ -42,7 +42,7 @@
       
       <div class="box-footer">
         <a href="/cadastro"><button>Cadastrar Novo Perfil</button></a>
-      </div>
+      </div>   
    
   </div>
 <br>

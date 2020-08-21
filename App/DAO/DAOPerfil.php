@@ -2,11 +2,11 @@
 
 //CRUD DOS PERFIS
 
-namespace App;
+namespace App\DAO;
 
-use App\DB\Sql;
+use App\DAo\Connect;
 
-class Perfil
+class DAOPerfil
 {
     private $idperfil;
     private $nome_usu;
@@ -40,21 +40,18 @@ class Perfil
     public function setDatanasc($value)
     {
         $this->data_nasc = $value;
-    }
-        
+    }        
 
     public function __construct($sql)
     {
         $this->sql = $sql;
     } 
-
     
     public function setData($data)
     {                        
         $this->setNomeusu($data['nome_usu']);
         $this->setDatanasc($data['data_nasc']);                           
-    }
-    
+    }    
 
     public function deleteById($id)
     {
@@ -63,7 +60,7 @@ class Perfil
 
     public static function listAllId()
     {           
-        $sql = new Sql();
+        $sql = new Connect();
         return $sql->select("SELECT * FROM tb_perfil ORDER BY idperfil");
     } 
     
@@ -71,8 +68,7 @@ class Perfil
     {
         $results = $this->sql->select("SELECT * FROM tb_perfil WHERE idperfil = :ID", [":ID"=>$id]);
         return $results;
-    }
-   
+    }   
 
     public function insert()
     {        
@@ -82,7 +78,6 @@ class Perfil
         ));                     
     }
 
-
     public function update()
     {        
         $this->sql->select("UPDATE tb_perfil SET nome_usu = :nome_usu, data_nasc = :data_nasc WHERE idperfil = :idperfil", array(            
@@ -91,11 +86,5 @@ class Perfil
             ':idperfil'=>$this->getIdperfil()
         ));
     }
- 
-   
-
-
 }
 
-
-?>

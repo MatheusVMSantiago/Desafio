@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 // namespace
 use Rain\Tpl;
@@ -15,12 +15,11 @@ class Page
 
     public function __construct($opts = array())
     {
-
         $this->options = array_merge($this->defaults, $opts);
 
         $config = array(
-            "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/",
-            "cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
+            "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/App/Views/",
+            "cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/App/views-cache/",
             "debug"         => false // set to false to improve the speed
         );
     
@@ -29,17 +28,13 @@ class Page
         $this->tpl = new Tpl;
         $this->setData($this->options["data"]);   
         $this->tpl->draw("header");
-
-
     }
-
     
     public function setTpl($name, $data = array(), $returnHTML = false)
     {
         $this->setData($data);
         return $this->tpl->draw($name, $returnHTML);         
-    }
-    
+    }    
 
     private function setData($data= array())
     {
@@ -49,14 +44,9 @@ class Page
         }
     }
 
-
     public function __destruct()
     {
         $this->tpl->draw("footer");    
-    }
-
-      
-
+    }    
 }
 
-?>

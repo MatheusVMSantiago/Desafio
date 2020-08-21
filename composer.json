@@ -1,18 +1,7 @@
 {
-    "name": "MatheusVMSantiago/desafio",
-    "authors": [
-        {
-            "name": "Matheus Vitor",
-            "email": "matheusvmsantiago@gmail.com"
-        }
-    ],
-    "require": {    	
-    	"slim/slim":"2.0",
-    	"rain/raintpl":"3.0.0"
-    },
-    "autoload": {
+        "autoload": {
         "psr-4": {
-            "App\\": "vendor\\classes\\src"
+            "App\\": "App"
         }
     }
 }

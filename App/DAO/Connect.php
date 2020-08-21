@@ -2,9 +2,9 @@
 
 //CONEXAO DB
 
-namespace App\DB;
+namespace App\DAO;
 
-class Sql
+class Connect
 {
     private $conn;
 
@@ -25,7 +25,6 @@ class Sql
     {
         $statement->bindParam($key, $value);
     }
-
     
     public function query($rawQuery, $params = array())
     {
@@ -34,14 +33,10 @@ class Sql
         $stmt->execute();
         return $stmt;
     }
-
     
     public function select($rawQuery, $params = array()):array
     {
         $stmt = $this->query($rawQuery, $params);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-   
+    }   
 }
-
-?>
