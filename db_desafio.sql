@@ -1,6 +1,0 @@
-CREATE TABLE tb_perfil(
-idperfil INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-nome_usu VARCHAR(64) NOT NULL,
-data_nasc DATE NOT NULL
-);
-

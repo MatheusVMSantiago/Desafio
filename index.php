@@ -11,7 +11,7 @@ $app = new \Slim\Slim();
 $app->get('/', function()
 {
     $acesso = new Rotas;
-    $acesso->getIndice(); 
+    $acesso->getIndex(); 
 });
 
 #EXIBIR JSON DO PERFIL
@@ -43,7 +43,7 @@ $app->get('/index/:idperfil/delete', function($idperfil)
     $acesso->doDelete($idperfil);
 });
 
-#PAG EDITAR PERFIL
+#PAG UPDATE PERFIL
 $app->get('/editar/:idperfil', function($idperfil)
 {                   
     $acesso = new Rotas;

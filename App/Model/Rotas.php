@@ -8,12 +8,14 @@ use App\DAO\DAOPerfil;
 
 class Rotas
 {    
-    public function getIndice()
+    public function getIndex()
     {
         $page = new Page();  
+        $namepage = "Home";
         $idperfil = DAOPerfil::listAllId();
         $page->setTpl("index", array(
-        "idperfil"=>$idperfil
+        "idperfil"=>$idperfil,
+        "namepage"=>$namepage
         ));  
     }
 
@@ -28,7 +30,10 @@ class Rotas
     public function getCadastrado()
     {
         $page = new Page();
-        $page->setTpl("cadastro");    
+        $namepage = "Cadastro";
+        $page->setTpl("cadastro", array(
+            "namepage"=>$namepage
+        ));    
     }
 
     public function postCadastro($data)
@@ -59,9 +64,11 @@ class Rotas
     public function getUpdate($idperfil)
     {
         $page = new Page();
+        $namepage = "Editar";
         setcookie("idperfil", $idperfil);
         $page->setTpl("editar",array(
-            "idperfil"=>$idperfil
+            "idperfil"=>$idperfil,
+            "namepage"=>$namepage
         ));
     }
 

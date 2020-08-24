@@ -1,4 +1,4 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><title>Perfis | <?php echo htmlspecialchars( $namepage, ENT_COMPAT, 'UTF-8', FALSE ); ?></title>
 <br><br><br>
 <div align="center">    
   
@@ -29,7 +29,7 @@
       <td>
         <a href="/editar/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
         <a href="/index/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este perfil?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-        <a href="/json/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Json</a>
+        <a href="/json/<?php echo htmlspecialchars( $value1["idperfil"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"  target="_blank"><i class="fa fa-edit"></i> Json</a>
       </td>
     </tr>
     <?php } ?>   
