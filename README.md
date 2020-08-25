@@ -44,7 +44,7 @@ data_nasc DATE NOT NULL
 ## Utilização do sistema
 Realizada a criação do Banco de Dados, instalação do composer, slim framework, rain tpl e criação dos namespaces, realize a conexão com o banco de dados, na classe ```Connect``` basta alterar os dados de conexão.
 
-Através da página Index você terá acesso ao cadastro de um novo Perfil. Após Criação de um Perfil, na página Home será apresentado o Perfil cadastrado e as funcionalidades de Exlusão, Edição e Json.
+Através da página Index você terá acesso ao cadastro de um novo Perfil. Após Criação de um Perfil, na página Home será apresentado o Perfil cadastrado e as funcionalidades de Exclusão, Edição e visualização de Json para cada Perfil.
 
 ![Imagem Perfil](https://github.com/MatheusVMSantiago/Desafio/blob/master/App/Image_perfil/HomePerfil.JPG)
 
