@@ -13,7 +13,7 @@ Documentação: http://www.slimframework.com/docs/v2/
 Desenvolvedor: https://github.com/feulf/raintpl3
 
 ### Composer 
-Documentação e dowmload: https://getcomposer.org/
+Documentação e download: https://getcomposer.org/
 
 ### Json Composer para instalação + criação de namespace
 Crie um arquivo composer.json na raiz do projeto, execute em terminal o comando para instalação: ```composer install``` dentro de ```xampp/htdocs/SEUDIRETORIO```.
