@@ -9,8 +9,8 @@ class Connect
     private $conn;
 
     public function __construct()
-    {   // como não foi extends da PDO, para usar basta chamar como namespace \PDO
-        $this->conn = new \PDO("mysql:dbname=db_desafio; host=127.0.0.1","root","");
+    {   
+        $this->conn = new \PDO("mysql:dbname=db_email; host=127.0.0.1","root","");
     } 
 
     private function setParams($statement, $parameters = array())

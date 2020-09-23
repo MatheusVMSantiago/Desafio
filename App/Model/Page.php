@@ -49,4 +49,3 @@ class Page
         $this->tpl->draw("footer");    
     }    
 }
-
