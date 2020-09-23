@@ -1,27 +1,50 @@
-<title>Lista de Email | {$namepage}</title>
-
-
-<div id="divA">
-
-+ <a href="/cadastro"> <button> Cadastrar Caixa Postal</button></a>
-</div>
-
-<div align="center">   
+<title>Perfis | {$namepage}</title>
+<br><br><br>
+<div align="center">    
+  
   <div>
-    <h1>Procure pela caixa postal</h1>
+    <h1>Lista de Perfis</h1>
   </div>
+
 </div> 
 
-<br>
-  <div class="box-footer" align="center">
-    <form role="form" action="/listemail" method="get">
-      <input type="text" class="form-control" id="nomecaixa" name="nomecaixa" placeholder="ex: CAIXAXFB">       
-      <button type="submit" class="btn btn-success">Procurar</button>
-  </form>
-  </div>  
+<div class="box-body no-padding" align="center">
+    <table class="table table-striped" border="1">
+     
+        <tr>
+          <th style="width: 200px">ID</th>
+          <th style="width: 200px">Nome</th>
+          <th style="width: 200px">Data de Nascimento</th>
+          <th style="width: 200px">Opções</th>      
+          
+        </tr>
+        
+     
+    
+    {loop="$idperfil"} 
+    <tr align="center">
+      <td>{$value.idperfil}</td>
+      <td>{$value.nome_usu}</td>
+      <td>{$value.data_nasc}</td>     
+      <td>
+        <a href="/editar/{$value.idperfil}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+        <a href="/index/{$value.idperfil}/delete" onclick="return confirm('Deseja realmente excluir este perfil?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+        <a href="/json/{$value.idperfil}" class="btn btn-primary btn-xs"  target="_blank"><i class="fa fa-edit"></i> Json</a>
+      </td>
+    </tr>
+    {/loop}   
+</table>
+
 </div>
 
-
-
+<div align="center">        
+      <br><br>
+      
+      <div class="box-footer">
+        <a href="/cadastro"><button>Cadastrar Novo Perfil</button></a>
+      </div>   
+   
+  </div>
+<br>
 
 
