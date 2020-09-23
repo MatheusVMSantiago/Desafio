@@ -1,4 +1,4 @@
-<title>Lista de Email | {$namepage}</title>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><title>Lista de Email | <?php echo htmlspecialchars( $namepage, ENT_COMPAT, 'UTF-8', FALSE ); ?></title>
 
 
 <div id="divA">
